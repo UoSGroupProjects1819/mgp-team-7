@@ -31,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
         // if he's close but not too close, the enemy will stop moving
-        else if(Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+        else if(Vector2.Distance(transform.position, player.position) == stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
         {
             transform.position = this.transform.position;
         }
