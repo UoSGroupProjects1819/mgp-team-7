@@ -14,13 +14,14 @@ public class Projectile : MonoBehaviour {
     public Rigidbody2D rb;
     public float ReflectSpeed;
 
+    public int damage { get; private set; }
+
     void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        wall = GameObject.FindGameObjectWithTag("Wall").transform;
-
         target = new Vector2(player.position.x, player.position.y);
+
         rb = GetComponent<Rigidbody2D>();
     }
 	
@@ -54,9 +55,11 @@ public class Projectile : MonoBehaviour {
             var reflect = Vector2.Reflect(dir, player.up);
             rb.velocity = reflect * ReflectSpeed;
         }
+
+        if (other.CompareTag("Wall"))
+            DestroyProjectile();
     }
 
-    // function that destroys the projectile
     void DestroyProjectile()
     {
         Destroy(gameObject);

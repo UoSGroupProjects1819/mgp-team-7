@@ -9,11 +9,15 @@ public class EnemyBehaviour : MonoBehaviour {
     public float retreatDistance;
 
     private Transform player;
+    public Transform firePoint;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
 
     public GameObject projectile;
+
+    int enemyHP = 2;
+
 
 	void Start ()
     {
@@ -44,7 +48,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
         if(timeBtwShots <= 0)
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, firePoint.position, firePoint.rotation);
             timeBtwShots = startTimeBtwShots;
         }
         else
@@ -52,4 +56,15 @@ public class EnemyBehaviour : MonoBehaviour {
             timeBtwShots -= Time.deltaTime;
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Bullet"))
+        {
+            Destroy(col.gameObject);
+            enemyHP--;
+            if(enemyHP <= 0)
+                Destroy(gameObject);
+        }
+    }
 }
