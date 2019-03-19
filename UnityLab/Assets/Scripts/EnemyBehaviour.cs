@@ -29,6 +29,12 @@ public class EnemyBehaviour : MonoBehaviour {
 	
 	void Update ()
     {
+        Vector3 diff = player.position - transform.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rot_z);
+
         // if the enemy is too far away, he'll move closer to the target
 		if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
@@ -67,4 +73,5 @@ public class EnemyBehaviour : MonoBehaviour {
                 Destroy(gameObject);
         }
     }
+
 }
