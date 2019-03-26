@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public GameObject player;
+    public Vector3 cameraPosition = Vector3.zero;
+    public Transform target;
 
-    private Vector3 offset;
-
-    void Start()
+    private void FixedUpdate()
     {
-        offset = transform.position - player.transform.position;
+        cameraPosition = new Vector3(
+            Mathf.SmoothStep(transform.position.x, target.transform.position.x, 0.3f),
+            Mathf.SmoothStep(transform.position.y, target.transform.position.y, 0.3f));
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        transform.position = cameraPosition + Vector3.forward * -10;
     }
 }
