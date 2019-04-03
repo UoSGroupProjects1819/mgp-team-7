@@ -32,8 +32,9 @@ public class EnemyBehaviour : MonoBehaviour {
         Vector3 diff = player.position - transform.position;
         diff.Normalize();
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        float rot_z = Mathf.Atan2(-diff.x, diff.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot_z);
+
 
         // if the enemy is too far away, he'll move closer to the target
 		if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
@@ -50,7 +51,6 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
-
 
         if(timeBtwShots <= 0)
         {

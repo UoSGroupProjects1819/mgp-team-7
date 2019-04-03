@@ -185,6 +185,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9038723176266380145, guid: 4d0b058e95364b443a81590a044575e7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038723176266380145, guid: 4d0b058e95364b443a81590a044575e7,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038723176266380157, guid: 4d0b058e95364b443a81590a044575e7,
+        type: 3}
+      propertyPath: startTimeBtwShots
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038723176266380157, guid: 4d0b058e95364b443a81590a044575e7,
+        type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d0b058e95364b443a81590a044575e7, type: 3}
 --- !u!1001 &435558135
@@ -273,6 +293,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400779129498094280, guid: 8e8281a342c744f4c98a1531b2444435,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400779129498094281, guid: 8e8281a342c744f4c98a1531b2444435,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e8281a342c744f4c98a1531b2444435, type: 3}
